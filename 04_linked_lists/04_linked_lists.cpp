@@ -3,9 +3,66 @@
 
 #include <iostream>
 
+using namespace std;
+
+struct Grupo {
+    char nombre[10];
+    int numero_salon;
+};
+
+struct Alumno {
+    //Datos
+    int matricula;
+    char nombre[20];
+    //Grupo grupos[8];
+    //Enlace/link
+    Alumno* siguienteNodo;
+};
+
+Alumno* origenLista;
+
+Alumno* crearNuevoAlumno(int matricula, const char nombre[])
+{
+    Alumno* nuevoAlumno = new Alumno;
+    nuevoAlumno->matricula = matricula;//123456;
+    strcpy_s(nuevoAlumno->nombre, nombre);
+    nuevoAlumno->siguienteNodo = NULL;
+    return nuevoAlumno;
+}
+
+void insertarNodoAlFinalDeLaLista(Alumno* nuevoAlumno)
+{
+    if (origenLista == NULL)//PARA SABER QUE LA LISTA ESTA VACIA
+    {
+        origenLista = nuevoAlumno;
+    }
+    else
+    {
+        Alumno* nodoTemporal = origenLista;
+        //recorremos al final de la lista
+        while (nodoTemporal->siguienteNodo != NULL)
+            nodoTemporal = nodoTemporal->siguienteNodo;
+        //en la cola de la lista asignamos el nuevo nodo
+        nodoTemporal->siguienteNodo = nuevoAlumno;
+    }
+}
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    origenLista = NULL;
+
+    //CREANDO UN NUEVO NODO
+    Alumno* nuevoAlumno = crearNuevoAlumno(123456, "Ray");
+    insertarNodoAlFinalDeLaLista(nuevoAlumno);
+
+    Alumno* nuevoAlumno2 = crearNuevoAlumno(7982, "Rey");
+    insertarNodoAlFinalDeLaLista(nuevoAlumno2);
+
+    Alumno* nuevoAlumno3 = crearNuevoAlumno(87978, "Roy");
+    insertarNodoAlFinalDeLaLista(nuevoAlumno3);
+
+    Alumno* nuevoAlumno4 = crearNuevoAlumno(1425367, "Ryu");
+    insertarNodoAlFinalDeLaLista(nuevoAlumno4);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
