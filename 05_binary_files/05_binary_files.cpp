@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const int optionToRun = 0;
+const int optionToRun = 10;
 
 void (*functionToRunPtr)();
 void createASampleFileUsingOFStream();
@@ -55,25 +55,26 @@ int main()
 
 void createASampleFileUsingOFStream()
 {
-    ofstream myfile;
-    myfile.open("example1.txt");
-    myfile << "Writing this to a file.\n";
-    myfile.close();
+    ofstream fileHandler; //ofstream sirve para crear y escribir archivos
+    fileHandler.open("example1.txt");
+    fileHandler << "Writing this to a file.\n";
+    fileHandler.close();
 }
 
 void readASampleFileUsingOFStream()
 {
-    char buff[50];
-    ifstream myfile;
+    //char buff[50];
+    string buffer;
+    ifstream myfile; //ifstream sirve para leer datos desde un archivo
     myfile.open("example1.txt");
-    myfile >> buff;
+    getline(myfile, buffer); // obtener linea
     myfile.close();
-    cout << buff;
+    cout << buffer;
 }
 
 void usingDifferentModesWhenReadingOrWritingAFile()
 {
-    fstream fileWriter;
+    ofstream fileWriter;
     fileWriter.open("example2.txt");
     fileWriter << "Hello, world.\n";
     fileWriter.close();
@@ -89,12 +90,12 @@ void usingDifferentModesWhenReadingOrWritingAFile()
     string buffer;
     fstream fileReader;
     fileReader.open("example2.txt", ios::in);
-    getline(fileReader,buffer);
+    getline(fileReader, buffer);
     fileReader.close();
     cout << buffer << endl;
 
-    fstream fileReader;
-    fileReader.open("example2.txt", ios::in || ios::ate);
+    // fstream fileReader;
+    fileReader.open("example2.txt", ios::in | ios::ate);
     getline(fileReader, buffer);
     fileReader.close();
     cout << buffer << endl;
@@ -103,7 +104,7 @@ void usingDifferentModesWhenReadingOrWritingAFile()
 void validatingIfFileIsOpen()
 {
     fstream fileStream;
-    fileStream.open("example3.txt", ios::out);
+    fileStream.open("example3.txt", ios::out | ios::trunc);
     if (fileStream.is_open())
     {
         fileStream << "How is it going?!\n";
@@ -125,13 +126,14 @@ void writtingAndReadingMultipleLines()
     fileStream.open("example4.txt", ios::out);
     for (int i = 0; i < linesToWrite; i++)
     {
-        fileStream << "Line #" << i + 1 <<" with a hardcoded text\n";
+        fileStream << "Line #" << i + 1
+            << " with a hardcoded text\n";
     }
     fileStream.close();
 
     string dataLine;
     fileStream.open("example4.txt", ios::in);
-    while(getline(fileStream, dataLine))
+    while (getline(fileStream, dataLine))
     {
         cout << dataLine;
     }
@@ -142,14 +144,14 @@ void usingEOFStateFlag()
 {
     fstream fileStream;
     string dataLine;
-
     fileStream.open("example4.txt", ios::in);
     while (!fileStream.eof())
     {
-        fileStream >> dataLine;
+        //fileStream >> dataLine;
+        getline(fileStream, dataLine);
         cout << dataLine;
     }
-    
+
     fileStream.close();
 
 }
@@ -157,33 +159,34 @@ void usingEOFStateFlag()
 void usingTellGetAndTellPutPositions()
 {
     fstream fileStream;
-    streampos tellPutPosition;
-
-    fileStream.open("example5.txt", ios::out);
-    fileStream << "abcde";
+    long tellPutPosition;
+    /*
+    fileStream.open("example5.txt", ios::out | ios::trunc);
+    fileStream << "abcde\t";
     tellPutPosition = fileStream.tellp();
-    cout << "After storing \"abcde\" the put pointer is on " << tellPutPosition;
-    fileStream << "fghij";
+    cout << "After storing \"abcde\" the put pointer is on " << tellPutPosition << endl;
+    fileStream << "fghij\t";
     tellPutPosition = fileStream.tellp();
-    cout << "After storing \"fghij\" the put pointer is on " << tellPutPosition;
+    cout << "After storing \"fghij\" the put pointer is on " << tellPutPosition << endl;
     fileStream << "klmno";
     tellPutPosition = fileStream.tellp();
-    cout << "After storing \"klmno\" the put pointer is on " << tellPutPosition;
+    cout << "After storing \"klmno\" the put pointer is on " << tellPutPosition << endl;
     fileStream << "pqrst";
     tellPutPosition = fileStream.tellp();
-    cout << "After storing \"pqrst\" the put pointer is on " << tellPutPosition;
+    cout << "After storing \"pqrst\" the put pointer is on " << tellPutPosition << endl;
     fileStream << "uvwxyz";
     tellPutPosition = fileStream.tellp();
-    cout << "After storing \"uvwxyz\" the put pointer is on " << tellPutPosition;
+    cout << "After storing \"uvwxyz\" the put pointer is on " << tellPutPosition << endl;
     fileStream.close();
 
-
+    */
     string buffer;
-    streampos tellGetPosition;
+    long tellGetPosition;
     fileStream.open("example5.txt", ios::in);
     tellGetPosition = fileStream.tellg();
     cout << "before getline => get position = " << tellGetPosition << endl;
     getline(fileStream, buffer);
+    tellGetPosition = fileStream.tellg();
     cout << "after getline => get position = " << tellGetPosition << endl;
     cout << "buffer = " << buffer << endl;
     fileStream.close();
@@ -229,16 +232,30 @@ void usingSeekGetAndSeekPutPositions()
 void usingSeekGetAndSeekPutPositionsWithOffset()
 {
     fstream fileStream;
-    fileStream.open("example7.txt", ios::out);
+    fileStream.open("example7.txt", ios::out | ios::trunc);
     fileStream << "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     fileStream.seekp(ios::beg, 1);
-    fileStream << "9";
+    fileStream << "9"; //"A9CDEFGHIJKLMNOPQRSTUVWXYZ";
+    fileStream.close();
+
+    fileStream.open("example7.txt", ios::out | ios::trunc);
+    fileStream << "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     fileStream.seekp(ios::end, 1);
-    fileStream << "0";
+    fileStream << "0";//"A9CDEFGHIJKLMNOPQRSTUVWX0Z";
+    fileStream.close();
+
+    fileStream.open("example7.txt", ios::out | ios::trunc);
     fileStream.seekp(ios::beg, 5);
-    fileStream << "_";
+    fileStream << "_";//"A9CD_FGHIJKLMNOPQRSTUVWX0Z";
+    fileStream.close();
+
+    fileStream.open("example7.txt", ios::out | ios::trunc);
+    fileStream << "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     fileStream.seekp(ios::cur, 5);
-    fileStream << "@";
+    fileStream << "@";//"A9CD_FGHI@KLMNOPQRSTUVWX0Z";
+    fileStream.close();
+
+    fileStream.open("example7.txt", ios::out);
     fileStream.close();
 
 }
@@ -250,7 +267,6 @@ struct Address {
     int zipCode;
 };
 
-
 void writeBinaryFiles()
 {
     Address addressToWrite;
@@ -260,33 +276,27 @@ void writeBinaryFiles()
     addressToWrite.zipCode = 61532;
 
     fstream fileStream;
-    fileStream.open("example8.txt", ios::out | ios::binary);
-    
-    if (!fileStream.is_open())
-    {
-        cout << "Unable to open file" << endl;
-        return;
-    }
-    
+    fileStream.open("example8.bin", ios::out | ios::binary);
     fileStream.write((char*)(&addressToWrite), sizeof(Address));
     fileStream.close();
 
-    fstream fileStream;
-    fileStream.open("example9.txt", ios::out | ios::binary);
-    for (int i = 0 ; i < 10; i++)
+    fstream archivo;
+    archivo.open("example9.bin", ios::out | ios::binary);
+    for (int i = 0; i < 10; i++)
     {
-        fileStream.write((char*)(&addressToWrite), sizeof(Address));
+        archivo.write((char*)(&addressToWrite), sizeof(Address));
     }
-    fileStream.close();
-
+    archivo.close();
 }
 
 void readBinaryFiles()
 {
     Address addressToRead;
     fstream fileStream;
-    fileStream.open("example8.txt", ios::in | ios::binary);
+    fileStream.open("example8.bin", ios::in | ios::binary);
     fileStream.read((char*)&addressToRead, sizeof(Address));
+    //se castea, o se hace un cast
+    //sizeof me regresa el valor en byte de lo que este dentro de los parentesis
 
     cout << addressToRead.country << endl;
     cout << addressToRead.state << endl;
@@ -296,36 +306,37 @@ void readBinaryFiles()
     fileStream.close();
 
 
-    fileStream.open("example9.txt", ios::in | ios::binary);
+    fileStream.open("example9.bin", ios::in | ios::binary | ios::ate);
     if (!fileStream.is_open())
     {
         cout << "Unable to open file" << endl;
         return;
     }
-    int totalCharacters = fileStream.tellg();
-    if (totalCharacters < 1) {
+    int totalByteSize = fileStream.tellg();//dar la posicion del puntero de lectura
+    if (totalByteSize < 1) {
         cout << "Empty file \n";
         fileStream.close();
         return;
     }
 
     Address adresses[10];
-    for (int i = 0, addressCounter = 0; i < totalCharacters / sizeof(Address); i++) {
+    for (int i = 0, addressCounter = 0; i < (totalByteSize / sizeof(Address)); i++) {
         Address* temp = new Address;
-        fileStream.seekg(i * sizeof(Address));
-        fileStream.read(reinterpret_cast<char*>(temp), sizeof(Address));
-        adresses[addressCounter++] = *temp;
-        delete reinterpret_cast<char*>(temp);
+        fileStream.seekg(i * sizeof(Address));//seekg establece la posicion del puntero de lectura
+        fileStream.read((char*)(temp), sizeof(Address));
+        adresses[addressCounter] = *temp;
+        addressCounter++;
+        delete temp;
     }
 
     fileStream.close();
     for (int i = 0; i < 10; i++)
     {
         cout << "Address #" << i + 1 << endl;
-        cout << (*(adresses+i)).country << endl;
-        cout << (*(adresses+i)).state << endl;
-        cout << (*(adresses+i)).street << endl;
-        cout << (*(adresses+i)).zipCode << endl;
+        cout << (*(adresses + i)).country << endl;
+        cout << (*(adresses + i)).state << endl;
+        cout << adresses[i].street << endl;
+        cout << adresses[i].zipCode << endl;
     }
 
 }
