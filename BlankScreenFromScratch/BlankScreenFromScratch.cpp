@@ -3,6 +3,14 @@
 #endif 
 
 #include <windows.h>
+#include "resource.h"
+
+//referencia glbal a la instancia de la aplicacion
+HINSTANCE GlobalhInstance;
+
+LRESULT CALLBACK fDialogExample(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
+
+
 /// <summary>
 /// Prototipo de la funcion WinProc o Window Procedure.
 /// Cuando el programa inicia, este registra informacion sobre el comportamiento de la ventana de la aplicacion.
@@ -29,6 +37,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 /// <returns>Retorna un entero que es ignorado por el SO pero se puede definir a conveniencia para algun otro programa desarrollado</returns>
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
+    GlobalhInstance = hInstance;
     // WINAPI es una convencion, una convencion de llamada. Una convencion define como va a recibir los parametros una funcion desde donde se llame.
     
     //WinMain y wWinMain son identicos con la excepcion que los argumentos de linea de comandos se reciben con formato ANSI (WinMain)
@@ -167,6 +176,25 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         PostQuitMessage(0);
         return 0;
 
+    //PRIMER EJEMPLO
+    case WM_LBUTTONDOWN:
+    {
+        //esta funcion despliega una caja de mensaje
+        int respuesta = MessageBox(hwnd, L"Presionaste el boton izquierdo del raton", L"Atencion", MB_OKCANCEL | MB_ICONEXCLAMATION);
+        if (respuesta == IDOK)
+            MessageBoxW(hwnd, L"Presionaste OK", L"OK", MB_OK | MB_ICONASTERISK);
+        else
+            MessageBoxW(hwnd, L"Presionaste cancel", L"Cancelado", MB_OK | MB_ICONHAND);
+        break;
+    }
+    case WM_RBUTTONDOWN:
+    {
+        MessageBoxW(hwnd, L"Presionaste f1, se abrira un dialogo nuevo", L"f1", MB_OK | MB_ICONASTERISK);
+   
+        HWND hwndDialog = CreateDialogW(GlobalhInstance, MAKEINTRESOURCE(IDD_DIALOG1),hwnd, fDialogExample);
+        ShowWindow(hwndDialog, SW_SHOW);
+        break;
+    }
     case WM_PAINT:
     {
         PAINTSTRUCT ps;
@@ -178,10 +206,24 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
         EndPaint(hwnd, &ps);
     }
+    
     return 0;
 
     }
     //si no tenemos que manejar un mensaje en particular podemos simplemente pasar los parametros directamente a la siguiente funcion,
     //la cual ejecuta acciones default dependiendo del mensaje
     return DefWindowProc(hwnd, uMsg, wParam, lParam);
+}
+
+LRESULT CALLBACK fDialogExample(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
+   
+    switch (msg){
+      case WM_INITDIALOG:
+      {
+    
+      }
+      break;
+    }
+
+    return DefWindowProc(hwnd, msg, wparam, lparam);
 }
