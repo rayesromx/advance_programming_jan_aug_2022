@@ -141,6 +141,15 @@
   <ItemGroup>
     <ClCompile Include="07_WinAPI.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Pasos.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="07_WinAPI.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

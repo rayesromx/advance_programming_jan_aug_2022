@@ -1,0 +1,23 @@
+Paso 1 - Tenemos nuestra plantilla minima para empezar a trabajar.
+	Esto es el la funcion de winmain y un callback default para copiar y pegar cuando se necesite
+
+Paso 2 - Crear un archivo de recursos en la carpeta de recursos del proyecto
+
+Paso 3 - Creamos un nuevo dialogo
+
+Paso 4 - Cambiamos el ID del dialogo a uno que nos sirva mas
+
+Paso 5 - Modificamos el dialogo y agregamos componentes, 
+	cambiando los ID de los mismos a un nombre que lo identifique mas facilmente
+
+Paso 6 - Agregar la cabecera y el codigo para crear el dialogo a partir del dialogo plantilla recien creado
+
+Paso 7  - Agregar el codigo minimo del WinProc que definira el comportamiento del nuevo dialogo
+
+Paso 8 - Validar que el dialogo se haya creado con exito
+
+Paso 9 - Mostrarlo en pantalla con la funcion ShowWindow
+
+Paso 9 - No olvidar el message loop
+
+Paso 10 - Listo! Sintamonos orgullosos de ser todos unos programadores en WinAPI
