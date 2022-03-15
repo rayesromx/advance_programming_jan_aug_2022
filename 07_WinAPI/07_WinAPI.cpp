@@ -127,9 +127,35 @@ INT_PTR CALLBACK fLoginProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 bool estaHabilitado = true;
 INT_PTR CALLBACK fOtroProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+    string lista_de_nombres[10];
+    lista_de_nombres[0] = "Ray";
+    lista_de_nombres[1] = "Angy";
+    lista_de_nombres[2] = "Rober";
+    lista_de_nombres[3] = "Angel";
+    lista_de_nombres[4] = "Jose";
+    lista_de_nombres[5] = "Alicia";
+    lista_de_nombres[6] = "Lili";
+    lista_de_nombres[7] = "Juan";
+    lista_de_nombres[8] = "Maleny";
+    lista_de_nombres[9] = "Antonio";
 
     switch (uMsg)
     {
+    case WM_INITDIALOG: {
+        
+
+        HWND handlerListado = GetDlgItem(hwnd, IDLB_LISTADO);
+        
+        for (int i = 0; i < 9; i++)
+        {
+            wstring ws = wstring(lista_de_nombres[i].begin(), lista_de_nombres[i].end());
+            LPARAM item = reinterpret_cast<LPARAM>(ws.c_str());
+            int indice = SendMessage(handlerListado, LB_ADDSTRING, 0, item);
+            SendMessage(handlerListado, LB_SETITEMDATA, indice, i);
+        }
+
+
+    }break;
     case WM_DESTROY:
         PostQuitMessage(0);
         return 0;
@@ -148,6 +174,17 @@ INT_PTR CALLBACK fOtroProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         case IDBTN_LIMPIAR: {
             HWND handlerTxtOtro = GetDlgItem(hwnd, IDTXT_OTRO);
             SetWindowText(handlerTxtOtro, L"");
+        }break;
+        case IDLB_LISTADO:
+        {
+            if (HIWORD(wParam) == LBN_SELCHANGE)
+            {
+                int lbIndex = SendDlgItemMessage(hwnd, IDLB_LISTADO, LB_GETCURSEL, NULL, NULL);
+                int indiceDeArreglo = SendDlgItemMessage(hwnd, IDLB_LISTADO, LB_GETITEMDATA, lbIndex, NULL);
+
+                wstring ws = wstring(lista_de_nombres[indiceDeArreglo].begin(), lista_de_nombres[indiceDeArreglo].end());
+                MessageBox(hwnd, ws.c_str(), L"Elemento seleccionado", MB_OK | MB_ICONINFORMATION);
+            }
         }break;
         }
     }break;
