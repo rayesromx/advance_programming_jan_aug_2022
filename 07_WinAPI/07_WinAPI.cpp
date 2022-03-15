@@ -13,6 +13,7 @@ bool exitProgram = false;
 
 INT_PTR CALLBACK DefaultWndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK fLoginProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+INT_PTR CALLBACK fOtroProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 wchar_t* getTextFromComponent(HWND hComponent);
 string wcharToStr(wchar_t* str);
@@ -94,8 +95,13 @@ INT_PTR CALLBACK fLoginProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             wchar_t* wusario = getTextFromComponent(hTxtLoginUserName);
             string usuario = wcharToStr(wusario);
-            int t = MessageBox(hwnd, wusario, L"ALERT", MB_OKCANCEL);
+            int respuesta = MessageBox(hwnd, wusario, L"ALERT", MB_OKCANCEL);
+            if (respuesta != IDOK)
+                break;
 
+            HWND handlerOtro = CreateDialogW(GlobalAppHInstance, MAKEINTRESOURCE(IDD_OTRO), NULL, fOtroProc);
+            ShowWindow(handlerOtro, SW_SHOW);
+            DestroyWindow(hwnd);
         }break;
         case IDBTN_LOGIN_SALIR: {
             //freeMemoryUser();
@@ -117,6 +123,38 @@ INT_PTR CALLBACK fLoginProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     //https://docs.microsoft.com/en-us/windows/win32/api/winuser/nc-winuser-dlgproc?redirectedfrom=MSDN
     return FALSE;
 }
+
+bool estaHabilitado = true;
+INT_PTR CALLBACK fOtroProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+
+    switch (uMsg)
+    {
+    case WM_DESTROY:
+        PostQuitMessage(0);
+        return 0;
+    case WM_COMMAND: {
+        switch (LOWORD(wParam))
+        {
+        case IDBTN_CAMBIAR: {
+            HWND handlerTxtOtro = GetDlgItem(hwnd, IDTXT_OTRO);
+            estaHabilitado = !estaHabilitado;
+            EnableWindow(handlerTxtOtro, estaHabilitado);
+        }break;
+        case IDBTN_PONERTEXTO: {
+            HWND handlerTxtOtro = GetDlgItem(hwnd, IDTXT_OTRO);
+            SetWindowText(handlerTxtOtro, L"Hello, World!!!");
+        }break;
+        case IDBTN_LIMPIAR: {
+            HWND handlerTxtOtro = GetDlgItem(hwnd, IDTXT_OTRO);
+            SetWindowText(handlerTxtOtro, L"");
+        }break;
+        }
+    }break;
+    }
+    return FALSE;
+}
+
 
 INT_PTR CALLBACK DefaultWndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
