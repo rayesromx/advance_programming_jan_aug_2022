@@ -149,8 +149,8 @@ INT_PTR CALLBACK fOtroProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         for (int i = 0; i < 9; i++)
         {
             wstring ws = wstring(lista_de_nombres[i].begin(), lista_de_nombres[i].end());
-            LPARAM item = reinterpret_cast<LPARAM>(ws.c_str());
-            int indice = SendMessage(handlerListado, LB_ADDSTRING, 0, item);
+            LPARAM nombreTipoLPARAM = reinterpret_cast<LPARAM>(ws.c_str());
+            int indice = SendMessage(handlerListado, LB_ADDSTRING, 0, nombreTipoLPARAM);
             SendMessage(handlerListado, LB_SETITEMDATA, indice, i);
         }
 
