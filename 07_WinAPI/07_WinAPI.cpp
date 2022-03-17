@@ -70,7 +70,7 @@ INT_PTR CALLBACK fLoginProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         * */
     case WM_DESTROY:
         if (exitProgram) {
-            PostQuitMessage(16);
+            PostQuitMessage(0);
         }
         return 0;
 
@@ -104,7 +104,6 @@ INT_PTR CALLBACK fLoginProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             DestroyWindow(hwnd);
         }break;
         case IDBTN_LOGIN_SALIR: {
-            //freeMemoryUser();
             exitProgram = true;
             DestroyWindow(hwnd);
         }break;
@@ -179,8 +178,10 @@ INT_PTR CALLBACK fOtroProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         {
             if (HIWORD(wParam) == LBN_SELCHANGE)
             {
-                int lbIndex = SendDlgItemMessage(hwnd, IDLB_LISTADO, LB_GETCURSEL, NULL, NULL);
-                int indiceDeArreglo = SendDlgItemMessage(hwnd, IDLB_LISTADO, LB_GETITEMDATA, lbIndex, NULL);
+                int lbIndex = 
+                    SendDlgItemMessage(hwnd, IDLB_LISTADO, LB_GETCURSEL, NULL, NULL);
+                int indiceDeArreglo = 
+                    SendDlgItemMessage(hwnd, IDLB_LISTADO, LB_GETITEMDATA, lbIndex, NULL);
 
                 wstring ws = wstring(lista_de_nombres[indiceDeArreglo].begin(), lista_de_nombres[indiceDeArreglo].end());
                 MessageBox(hwnd, ws.c_str(), L"Elemento seleccionado", MB_OK | MB_ICONINFORMATION);
