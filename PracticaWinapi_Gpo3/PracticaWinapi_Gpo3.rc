@@ -1,0 +1,136 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INICIODESESION DIALOGEX 0, 0, 252, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Inicio de sesión"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Registrar nuevo usuario",IDOK,24,53,105,14
+    PUSHBUTTON      "SALIR",IDBTN_SALIR,182,53,50,14
+    LTEXT           "Usuario",IDC_STATIC,21,27,26,8
+    EDITTEXT        IDTXT_Usuario,61,24,170,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Iniciar sesion",IDBTN_INICIARSESION,131,53,50,14
+END
+
+IDD_VENTANAPRINCIPAL DIALOGEX 0, 0, 311, 182
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Ventana principal"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,199,161,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,254,161,50,14
+    LTEXT           "Static",IDLBL_PRUEBA,61,123,73,8
+    EDITTEXT        IDTXT_DATO,27,20,219,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Establecer ""Ray"" como texto",IDBTN_ESTABLECERTEXTO,79,51,129,14
+    PUSHBUTTON      "Deshabilitar",IDBTN_HABILITADOR,25,51,50,14
+    PUSHBUTTON      "Limpiar",IDBTN_LIMPIAR,212,51,39,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_INICIODESESION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_VENTANAPRINCIPAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 175
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_INICIODESESION AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_VENTANAPRINCIPAL AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

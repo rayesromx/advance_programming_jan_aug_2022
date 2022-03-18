@@ -22,7 +22,6 @@ const wchar_t* strToWChar(string str);
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
     GlobalAppHInstance = hInstance;
-
     //Creamos una dialogo a partir de la plantilla IDD_LOGIN
     HWND handlerLoginWindow = CreateDialogW(
         GlobalAppHInstance,//La instancia de nuestra aplicacion
@@ -30,7 +29,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         NULL, //Como esta es la primera ventana, no tiene una ventana padre
         fLoginProc //La funcion Window Procedure asociada a este dialogo
     );
-
     //validamos que no haya habido errores
     if (handlerLoginWindow == NULL)
     {
@@ -42,11 +40,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         return 0;
     }
 
-    //Mostramos la ventana y listo, hasta aqui llega todo el codigo interesante del main
-    //en este ejercicio
+    // Mostramos la ventana y listo, hasta aqui llega todo el codigo interesante del main
+    // en este ejercicio
     ShowWindow(handlerLoginWindow, SW_SHOW);
-    UpdateWindow(handlerLoginWindow);
-
+    // UpdateWindow(handlerLoginWindow);
     // Recuerden que el message loop siempre debe de estar
 
     MSG msg = { };
@@ -55,7 +52,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
-
     return 0;
 }
 
@@ -65,8 +61,8 @@ INT_PTR CALLBACK fLoginProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     {
         /* Este evento remueve el dialog de la pantalla
         * Sent when a window is being destroyed. It is sent to the window procedure of the window being destroyed
-          after the window is removed from the screen.
-          https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-destroy
+        * after the window is removed from the screen.
+        * https://docs.microsoft.com/en-us/windows/win32/winmsg/wm-destroy
         * */
     case WM_DESTROY:
         if (exitProgram) {
@@ -99,7 +95,8 @@ INT_PTR CALLBACK fLoginProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             if (respuesta != IDOK)
                 break;
 
-            HWND handlerOtro = CreateDialogW(GlobalAppHInstance, MAKEINTRESOURCE(IDD_OTRO), NULL, fOtroProc);
+            HWND handlerOtro = CreateDialogW(GlobalAppHInstance, 
+                MAKEINTRESOURCE(IDD_OTRO), NULL, fOtroProc);
             ShowWindow(handlerOtro, SW_SHOW);
             DestroyWindow(hwnd);
         }break;
@@ -142,19 +139,14 @@ INT_PTR CALLBACK fOtroProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     switch (uMsg)
     {
     case WM_INITDIALOG: {
-        
-
         HWND handlerListado = GetDlgItem(hwnd, IDLB_LISTADO);
-        
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 10; i++)
         {
             wstring ws = wstring(lista_de_nombres[i].begin(), lista_de_nombres[i].end());
             LPARAM item = reinterpret_cast<LPARAM>(ws.c_str());
             int indice = SendMessage(handlerListado, LB_ADDSTRING, 0, item);
             SendMessage(handlerListado, LB_SETITEMDATA, indice, i);
         }
-
-
     }break;
     case WM_DESTROY:
         PostQuitMessage(0);
@@ -211,9 +203,6 @@ wchar_t* getTextFromComponent(HWND hComponent) {
     wchar_t* wct = new wchar_t[++length];
     GetWindowText(hComponent, wct, length);
     return wct;
-   /* wstring ws(wct);
-    string sText(ws.begin(), ws.end());
-    return sText;*/
 }
 
 string wcharToStr(wchar_t* str)

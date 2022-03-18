@@ -5,12 +5,14 @@ Paso 2 - Crear un archivo de recursos en la carpeta de recursos del proyecto
 
 Paso 3 - Creamos un nuevo dialogo
 
-Paso 4 - Cambiamos el ID del dialogo a uno que nos sirva mas
+Paso 4 - Cambiamos el ID del dialogo que acabamos de crear
+		a uno que nos sirva mas o que nos haga mas sentido
 
 Paso 5 - Modificamos el dialogo y agregamos componentes, 
 	cambiando los ID de los mismos a un nombre que lo identifique mas facilmente
 
-Paso 6 - Agregar la cabecera y el codigo para crear el dialogo a partir del dialogo plantilla recien creado
+Paso 6 - Agregar la cabecera y el codigo para crear el 
+dialogo a partir del dialogo plantilla recien creado
 
 Paso 7  - Agregar el codigo minimo del WinProc que definira el comportamiento del nuevo dialogo
 

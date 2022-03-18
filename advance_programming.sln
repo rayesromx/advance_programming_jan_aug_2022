@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_WinAppFromVS", "06_WinAp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_WinAPI", "07_WinAPI\07_WinAPI.vcxproj", "{D732677F-E892-4073-AC1E-1A5B3C95A8E5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PracticaWinapi_Gpo3", "PracticaWinapi_Gpo3\PracticaWinapi_Gpo3.vcxproj", "{BC6781AF-F7A9-44E6-AA54-EF97D0027852}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -101,6 +103,14 @@ Global
 		{D732677F-E892-4073-AC1E-1A5B3C95A8E5}.Release|x64.Build.0 = Release|x64
 		{D732677F-E892-4073-AC1E-1A5B3C95A8E5}.Release|x86.ActiveCfg = Release|Win32
 		{D732677F-E892-4073-AC1E-1A5B3C95A8E5}.Release|x86.Build.0 = Release|Win32
+		{BC6781AF-F7A9-44E6-AA54-EF97D0027852}.Debug|x64.ActiveCfg = Debug|x64
+		{BC6781AF-F7A9-44E6-AA54-EF97D0027852}.Debug|x64.Build.0 = Debug|x64
+		{BC6781AF-F7A9-44E6-AA54-EF97D0027852}.Debug|x86.ActiveCfg = Debug|Win32
+		{BC6781AF-F7A9-44E6-AA54-EF97D0027852}.Debug|x86.Build.0 = Debug|Win32
+		{BC6781AF-F7A9-44E6-AA54-EF97D0027852}.Release|x64.ActiveCfg = Release|x64
+		{BC6781AF-F7A9-44E6-AA54-EF97D0027852}.Release|x64.Build.0 = Release|x64
+		{BC6781AF-F7A9-44E6-AA54-EF97D0027852}.Release|x86.ActiveCfg = Release|Win32
+		{BC6781AF-F7A9-44E6-AA54-EF97D0027852}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
