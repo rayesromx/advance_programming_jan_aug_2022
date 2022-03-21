@@ -1,0 +1,164 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAINDIALOG DIALOGEX 0, 0, 287, 261
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PoKeApp"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LISTBOX         IDLB_POKELIST,18,32,86,143,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "PokeList",IDC_STATIC,19,17,27,8
+    PUSHBUTTON      "ADD POKEMON",IDBTN_ADDPKMN,18,184,86,14
+    PUSHBUTTON      "UPDATE POKEMON",IDBTN_UPDATEPKMN,18,206,86,14
+    PUSHBUTTON      "REMOVE POKEMON",IDBTN_REMOVEPKMN,18,228,86,14
+    LTEXT           "Name",IDC_STATIC,119,17,19,8
+    LTEXT           "NAME",IDLBL_NAME,182,17,20,8
+    LTEXT           "Number",IDC_STATIC,118,36,26,8
+    LTEXT           "NUMBER",IDLBL_NUMBER,182,36,28,8
+    LTEXT           "Type",IDC_STATIC,118,55,17,8
+    LTEXT           "TYPE",IDLBL_TYPE,182,55,17,8
+    LTEXT           "Fisrt appearence",IDC_STATIC,118,76,64,8
+    LTEXT           "APPEARENCE",IDLBL_APPEARENCE,182,76,44,8
+    CONTROL         "",IDPC_PHOTO,"Static",SS_BLACKFRAME,118,99,162,142
+END
+
+IDD_POKEFORM DIALOGEX 0, 0, 225, 251
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "POKEFORM"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDBTN_ACCEPT,83,230,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,168,230,50,14
+    LTEXT           "Name",IDC_STATIC,21,18,19,8
+    LTEXT           "Number",IDC_STATIC,19,37,26,8
+    LTEXT           "Type",IDC_STATIC,19,55,17,8
+    LTEXT           "Fisrt appearence",IDC_STATIC,19,73,64,8
+    EDITTEXT        IDTXT_NAME,83,12,135,14,ES_AUTOHSCROLL
+    EDITTEXT        IDTXT_NUMBER,83,31,135,14,ES_AUTOHSCROLL
+    EDITTEXT        IDTXT_TYPE,83,49,135,14,ES_AUTOHSCROLL
+    EDITTEXT        IDTXT_APPEARENCE,83,67,135,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Cargar imagen",IDBTN_LOADIMG,18,88,65,14
+    CONTROL         "",PB_FOTOP1M,"Static",SS_BITMAP,83,88,135,113,WS_EX_ACCEPTFILES
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_MAINDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 18
+        RIGHTMARGIN, 280
+        VERTGUIDE, 104
+        VERTGUIDE, 118
+        VERTGUIDE, 182
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 254
+        HORZGUIDE, 25
+        HORZGUIDE, 44
+        HORZGUIDE, 63
+        HORZGUIDE, 84
+    END
+
+    IDD_POKEFORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        VERTGUIDE, 18
+        VERTGUIDE, 83
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 244
+        HORZGUIDE, 26
+        HORZGUIDE, 45
+        HORZGUIDE, 63
+        HORZGUIDE, 81
+        HORZGUIDE, 88
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_MAINDIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_POKEFORM AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
