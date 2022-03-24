@@ -1,0 +1,167 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_POKEAPP DIALOGEX 0, 0, 310, 203
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "POKE APP"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "ADD POKEMON",IDBTN_ADDPKMN,15,143,78,14
+    LTEXT           "Pokemon list",IDC_STATIC,18,15,42,8
+    LISTBOX         IDLB_PKMNLIST,12,30,78,107,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "REMOVE POKEMON",IDOK2,15,160,78,14
+    DEFPUSHBUTTON   "UPDATE POKEMON",IDOK3,14,177,78,14
+    LTEXT           "NAME",IDC_STATIC,108,30,20,8
+    EDITTEXT        IDTXT_PKMNNAME,138,27,144,14,ES_AUTOHSCROLL
+    LTEXT           "TYPE",IDC_STATIC,108,49,18,8
+    EDITTEXT        IDTXT_PKMNTYPE,138,46,144,14,ES_AUTOHSCROLL
+    LTEXT           "NUMBER",IDC_STATIC,108,68,28,8
+    EDITTEXT        IDTXT_PKMNNUMBER,138,65,144,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,108,84,174,108
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 310, 177
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,199,156,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,253,156,50,14
+END
+
+IDD_POKEFORM DIALOGEX 0, 0, 206, 110
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "POKEFORM"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "SAVE",IDBTN_SAVE,15,86,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,142,86,50,14
+    LTEXT           "NAME",IDC_STATIC,18,20,20,8
+    EDITTEXT        IDTXT_NAME,49,17,144,14,ES_AUTOHSCROLL
+    LTEXT           "TYPE",IDC_STATIC,18,39,18,8
+    EDITTEXT        IDTXT_TYPE,49,36,144,14,ES_AUTOHSCROLL
+    LTEXT           "NUMBER",IDC_STATIC,18,58,28,8
+    EDITTEXT        IDTXT_NUMBER,49,55,144,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_POKEAPP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 303
+        VERTGUIDE, 93
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 303
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
+
+    IDD_POKEFORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 199
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_POKEAPP AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DIALOG1 AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_POKEFORM AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
