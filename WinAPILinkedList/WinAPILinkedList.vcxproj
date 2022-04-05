@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{51037944-b333-4a2f-96bb-7408b321ba39}</ProjectGuid>
-    <RootNamespace>BlankScreenFromScratch</RootNamespace>
+    <ProjectGuid>{2eee0ee2-e85f-494c-9c30-f27a983512da}</ProjectGuid>
+    <RootNamespace>WinAPILinkedList</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>06_BlankScreenFromScratch</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -43,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -140,13 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BlankScreenFromScratch.cpp" />
+    <ClCompile Include="DialogFunctions.cpp" />
+    <ClCompile Include="RERUtils.cpp" />
+    <ClCompile Include="WinAPILinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DialogFunctions.h" />
+    <ClInclude Include="RERUtils.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="06_BlankScreenFromScratch.rc" />
+    <ResourceCompile Include="WinAPILinkedList.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
