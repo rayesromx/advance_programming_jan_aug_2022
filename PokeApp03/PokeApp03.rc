@@ -1,0 +1,143 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_POKEAPP DIALOGEX 0, 0, 310, 177
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "PokeApp"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "ADD POKEMON",IDBTN_ADD,18,126,74,14
+    LTEXT           "Pokemon List",IDC_STATIC,18,11,44,8
+    LISTBOX         IDLB_POKELIST,16,29,74,91,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,159,48,127,14,ES_AUTOHSCROLL
+    LTEXT           "NAME",IDC_STATIC,110,50,20,8
+    EDITTEXT        IDC_EDIT2,159,65,127,14,ES_AUTOHSCROLL
+    LTEXT           "TYPE",IDC_STATIC,110,67,18,8
+    EDITTEXT        IDC_EDIT3,158,82,127,14,ES_AUTOHSCROLL
+    LTEXT           "NUMBER",IDC_STATIC,109,84,28,8
+    DEFPUSHBUTTON   "UPDATE POKEMON",IDBTN_UPDATE,17,142,75,14
+    DEFPUSHBUTTON   "REMOVE POKEMON",IDBTN_REMOVE,17,157,75,14
+END
+
+IDD_ADDNEWPKMN DIALOGEX 0, 0, 207, 106
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ADD NEW POKEMON"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,18,78,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,142,77,50,14
+    EDITTEXT        IDTXT_PKMNNAME,69,18,127,14,ES_AUTOHSCROLL
+    LTEXT           "NAME",IDC_STATIC,20,20,20,8
+    EDITTEXT        IDTXT_PKMNTYPE,69,35,127,14,ES_AUTOHSCROLL
+    LTEXT           "TYPE",IDC_STATIC,20,37,18,8
+    EDITTEXT        IDTXT_PKMNNUMBER,68,52,127,14,ES_AUTOHSCROLL
+    LTEXT           "NUMBER",IDC_STATIC,19,54,28,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_POKEAPP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 303
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
+
+    IDD_ADDNEWPKMN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 99
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_POKEAPP AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ADDNEWPKMN AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

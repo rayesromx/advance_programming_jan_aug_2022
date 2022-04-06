@@ -2,43 +2,32 @@
 #include <iostream>
 using namespace std;
 
-void imprimirSeparador(const char* separadorParam);
 
-void primeraFuncionalidad();
-void punteroapunteros();
-void segundaFuncionalidad();
-void terceraFuncionalidad();
-void cuartaFuncionalidad();
-void quintaFuncionalidad();
-void sextaFuncionalidad();
-void septimaFuncionalidad();
-void octavaFuncionalidad();
+void ejecutar_DeclaracionInicializacionEIndireccionDePunteros();
+void ejecutar_Punteroapunteros();
+void ejecutar_PunterosNULL();
+void ejecutar_PunterosVoid();
+void ejecutar_PunterosyArreglos();
+void ejecutar_AritmeticaDepunteros();
+void ejecutar_PunterosComoArgumentosDeFunciones();
+void ejecutar_PunterosDeEstructuras();
 
 void sumar(int sumaTotalParam, int xParam, int yParam);
 void sumar(int* sumaTotalPtrParam, int xParam, int yParam);
 
 int main()
 {
-    // Declaracion, inicializacion e indireccion de punteros
-    //primeraFuncionalidad();
-    //Punteros NULL
-    //segundaFuncionalidad();
-    //punteros void
-    //terceraFuncionalidad();
-    // puntero de punteros
-    //punteroapunteros();
-    //punteros y arreglos
-    //cuartaFuncionalidad();
-    //Aritm�tica de punteros
-    //quintaFuncionalidad();
-    //Punteros como argumentos de funciones
-    //sextaFuncionalidad();
-
-    //Punteros de estructuras
-    octavaFuncionalidad();
+    ejecutar_DeclaracionInicializacionEIndireccionDePunteros();
+    //ejecutar_PunterosNULL();
+    //ejecutar_PunterosVoid();
+    //ejecutar_Punteroapunteros();
+    //ejecutar_PunterosyArreglos();
+    //ejecutar_AritmeticaDepunteros();
+    //ejecutar_PunterosComoArgumentosDeFunciones();
+    //ejecutar_PunterosDeEstructuras();
 }
 
-void punteroapunteros()
+void ejecutar_Punteroapunteros()
 {
     int valor_e = 100;
     int* ptr1 = &valor_e;
@@ -53,10 +42,10 @@ void punteroapunteros()
     cout << "**ptr2: " << **ptr2 << endl;
 }
 
-void primeraFuncionalidad()
+void ejecutar_DeclaracionInicializacionEIndireccionDePunteros()
 {
 
-    //imprimirSeparador("Declaracion, inicializacion e indireccion de punteros");
+   
     int n = 75;
     int* p = &n;
 
@@ -68,9 +57,9 @@ void primeraFuncionalidad()
 
 }
 
-void segundaFuncionalidad()
+void ejecutar_PunterosNULL()
 {
-    //imprimirSeparador("Punteros NULL");
+   
     float* f;
     f = NULL;
     //float pi = 3.141592;
@@ -84,9 +73,9 @@ void segundaFuncionalidad()
 
 }
 
-void terceraFuncionalidad()
+void ejecutar_PunterosVoid()
 {
-    //imprimirSeparador("Punteros void");
+   
     void* pointer = NULL;
     int n = 7;
     float pi = 3.141592;
@@ -102,9 +91,9 @@ void terceraFuncionalidad()
     //casting
 }
 
-void cuartaFuncionalidad()
+void ejecutar_PunterosyArreglos()
 {
-    imprimirSeparador("Punteros y arreglos");
+   
 
     short numbers[/*10*/] = { 2,4,6,8,10, 12, 14, 16, 18, 20 };
 
@@ -137,9 +126,9 @@ void cuartaFuncionalidad()
     }
 }
 
-void quintaFuncionalidad()
+void ejecutar_AritmeticaDepunteros()
 {
-    //    imprimirSeparador("Aritmetica de punteros");
+   
     char mensaje2[] = "Pumteros???...No Puedem Ser! :C";
     /*  for (char* ptr = &mensaje2[0]; *ptr != 0; ptr = ptr + 1)
     {
@@ -219,7 +208,7 @@ void quintaFuncionalidad()
     //como imprimir el mensaje al reves????
 }
 
-void sextaFuncionalidad()
+void ejecutar_PunterosComoArgumentosDeFunciones()
 {
     int suma = 100;
     cout << "suma = " << suma << endl;
@@ -249,11 +238,8 @@ void sumar(int* sumaTotalPtr, int x, int y)
     cout << "sumaTotalPtr = " << *sumaTotalPtr << endl;
 }
 
-void septimaFuncionalidad()
-{
-}
 
-void octavaFuncionalidad()
+void ejecutar_PunterosDeEstructuras()
 {
 
     struct persona {
@@ -278,11 +264,6 @@ void octavaFuncionalidad()
     cout << "altura = " << ptr->altura << endl;
     cout << "peso = " << ptr->peso << endl;
 
-}
-
-void imprimirSeparador(const char* separadorParam)
-{
-    cout << separadorParam << endl << "********************************************" << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
