@@ -1,0 +1,190 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAINWINDOW DIALOGEX 0, 0, 165, 88
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Linked list examples using WinAPI"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Open Simple linked list examples",IDBTN_MW_OPENSIMPLELINKEDLISTS,19,17,122,14
+    DEFPUSHBUTTON   "Open Doubly linked list examples",IDBTN_MW_OPENDOUBLYLINKEDLISTS,19,36,122,14
+    DEFPUSHBUTTON   "Exit",IDBTN_MW_EXIT,19,56,122,14
+END
+
+IDD_SIMPLELISTS DIALOGEX 0, 0, 273, 154
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Simple linked lists examples"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,204,120,50,14
+    LISTBOX         IDLB_SLL_ITEMS,6,6,72,131,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Name",IDC_STATIC,84,10,19,12
+    EDITTEXT        IDTXT_SLL_NAME,108,6,150,14,ES_AUTOHSCROLL
+    LTEXT           "Date",IDC_STATIC,84,28,16,8
+    CONTROL         "",IDDTP_DATE,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,108,24,150,15
+    PUSHBUTTON      "ADD",IDBTN_SLL_ADDNEWITEM,108,42,150,14
+END
+
+IDD_DOUBLYLISTS DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Doubly linked lists examples"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,252,155,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_MAINWINDOW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 158
+        VERTGUIDE, 19
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 81
+    END
+
+    IDD_SIMPLELISTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 266
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    IDD_DOUBLYLISTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_MAINWINDOW AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_SIMPLELISTS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DOUBLYLISTS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDMENU_LISTACTIONS MENU
+BEGIN
+    MENUITEM "Home",                        ID_HOME
+    POPUP "Insert"
+    BEGIN
+        MENUITEM "Insert at begining",          ID_INSERT_INSERTATBEGINING
+        MENUITEM "Insert at the end",           ID_INSERT_INSERTATTHEEND
+        MENUITEM "Insert at custom position",   ID_INSERT_INSERTATCUSTOMPOSITION
+    END
+    MENUITEM "Update",                      ID_UPDATE
+    POPUP "Delete"
+    BEGIN
+        MENUITEM "Delete first node",           ID_DELETE_DELETEFIRST
+        MENUITEM "Delete last node",            ID_DELETE_DELETELASTNODE
+        MENUITEM "Delete node at a custom position", ID_DELETE_DELETEACUSTOMP
+    END
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Spanish (Spain, International Sort) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
+LANGUAGE LANG_SPANISH, SUBLANG_SPANISH_MODERN
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Spanish (Spain, International Sort) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
