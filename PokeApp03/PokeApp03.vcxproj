@@ -140,9 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="PokeApp03.cpp" />
+    <ClCompile Include="Pokemon.cpp" />
+    <ClCompile Include="Utilerias.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Pokemon.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Utilerias.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PokeApp03.rc" />

@@ -126,6 +126,23 @@ BEGIN
     0
 END
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU
+BEGIN
+    MENUITEM "Add new pokemon",             IDMENU_BTN_ADD
+    MENUITEM "Delete pkmn",                 IDMENU_BTN_DELETE
+    POPUP "Help"
+    BEGIN
+        MENUITEM "About",                       ID_HELP_ABOUT
+        MENUITEM "Exit",                        ID_HELP_EXIT
+    END
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
