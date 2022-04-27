@@ -8,6 +8,7 @@
 #define IDD_SIMPLELISTS                 103
 #define IDD_DOUBLYLISTS                 104
 #define IDMENU_LISTACTIONS              107
+#define IDR_MENUPRINCIPAL               108
 #define IDBTN_MW_OPENSIMPLELINKEDLISTS  1001
 #define IDLB_SLL_ITEMS                  1002
 #define IDTXT_SLL_NAME                  1003
@@ -21,14 +22,21 @@
 #define ID_HOME                         40007
 #define ID_UPDATE                       40008
 #define IDBTN_SLL_ADDNEWITEM            40009
+#define ADD                             40009
 #define IDBTN_MW_EXIT                   40010
+#define ID_ABOUT_EXIT                   40010
+#define ID_ABOUT_ABOUTUS                40011
+#define ID_PRODUCTOS_NUEVO              40012
+#define ID_PRODUCTOS_EDITAR             40013
+#define ID_PRODUCTOS_ELIMINAR           40014
+#define ID_PRODUCTOS_MISPRODUCTO        40015
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        108
-#define _APS_NEXT_COMMAND_VALUE         40009
+#define _APS_NEXT_RESOURCE_VALUE        109
+#define _APS_NEXT_COMMAND_VALUE         40016
 #define _APS_NEXT_CONTROL_VALUE         1005
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

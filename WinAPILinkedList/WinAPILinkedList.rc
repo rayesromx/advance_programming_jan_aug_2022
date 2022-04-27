@@ -121,7 +121,13 @@ END
 
 IDMENU_LISTACTIONS MENU
 BEGIN
-    MENUITEM "Home",                        ID_HOME
+    POPUP "Productos"
+    BEGIN
+        MENUITEM "Nuevo",                       ID_PRODUCTOS_NUEVO
+        MENUITEM "Editar",                      ID_PRODUCTOS_EDITAR
+        MENUITEM "Eliminar",                    ID_PRODUCTOS_ELIMINAR
+        MENUITEM "Mis producto",                ID_PRODUCTOS_MISPRODUCTO
+    END
     POPUP "Insert"
     BEGIN
         MENUITEM "Insert at begining",          ID_INSERT_INSERTATBEGINING
@@ -134,6 +140,18 @@ BEGIN
         MENUITEM "Delete first node",           ID_DELETE_DELETEFIRST
         MENUITEM "Delete last node",            ID_DELETE_DELETELASTNODE
         MENUITEM "Delete node at a custom position", ID_DELETE_DELETEACUSTOMP
+    END
+END
+
+IDR_MENUPRINCIPAL MENU
+BEGIN
+    MENUITEM "ADD",                         0
+    MENUITEM "DELETE",                      0
+    MENUITEM "UPDATE",                      0
+    POPUP "ABOUT"
+    BEGIN
+        MENUITEM "EXIT",                        ID_ABOUT_EXIT
+        MENUITEM "ABOUT US",                    ID_ABOUT_ABOUTUS
     END
 END
 

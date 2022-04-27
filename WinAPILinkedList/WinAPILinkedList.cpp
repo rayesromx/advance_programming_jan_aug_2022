@@ -16,6 +16,13 @@ INT_PTR CALLBACK fDlgDoublyLinkedListExamples(HWND hwnd, UINT uMsg, WPARAM wPara
 INT_PTR CALLBACK fDlgMainWindow(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 
+struct Envio
+{
+	SYSTEMTIME  fechaEnvio;
+	string colonia;
+		int cantidad;
+
+};
 
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
@@ -52,8 +59,10 @@ INT_PTR CALLBACK fDlgSimpleLinkedListExamples(HWND hwnd, UINT uMsg, WPARAM wPara
 
 		HWND hDatePick = GetDlgItem(hwnd, IDDTP_DATE);
 		//DateTime_SetFormat(hDatePick, L"09/19/1991");
-		//SYSTEMTIME  dts;
+		SYSTEMTIME  dts;
 		//DateTime_GetSystemtime(hDatePick, &dts);
+
+		//DateTime_SetSystemtime()
 		
 	}
 	break;
@@ -64,12 +73,22 @@ INT_PTR CALLBACK fDlgSimpleLinkedListExamples(HWND hwnd, UINT uMsg, WPARAM wPara
 		{
 		case IDBTN_SLL_ADDNEWITEM:
 		{
-			HWND hDatePick = GetDlgItem(hwnd, IDDTP_DATE);
+			HWND hDatePick =  GetDlgItem(hwnd, IDDTP_DATE);
+			SYSTEMTIME  fechaEnvio;
+			DateTime_GetSystemtime(hDatePick, &fechaEnvio);
+			//int anio = fechaEnvio.wYear;
+
+			
+			string fechaStr = "";
+			fechaStr.append(to_string(fechaEnvio.wYear));
+			fechaStr.append("-");
+			fechaStr.append(to_string(fechaEnvio.wMonth));
+			fechaStr.append("-");
+			fechaStr.append(to_string(fechaEnvio.wDay));
+			
+
+
 			string datePickerTime = RERGetText(hDatePick);
-
-			
-			
-
 
 			time_t tiempoActual;
 			tm infoTiempo;
@@ -179,12 +198,24 @@ INT_PTR CALLBACK fDlgDoublyLinkedListExamples(HWND hwnd, UINT uMsg, WPARAM wPara
 
 INT_PTR CALLBACK fDlgMainWindow(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+	
 	switch (uMsg)
 	{
+	case WM_INITDIALOG:
+	{
+		HMENU hMenu = LoadMenu(global_hInstance, MAKEINTRESOURCE(IDR_MENU1));
+		SetMenu(hwnd, hMenu);
+	}
+	break;
 	case WM_COMMAND:
 	{
 		switch (LOWORD(wParam))
 		{
+		/*case ID_ABOUT_EXIT:
+		{
+			MessageBox(hwnd, L"Prueba", L"pruebita", MB_OK);
+		}*/
+		break;
 		case IDBTN_MW_EXIT:
 		{
 			if (REROKCancelMBox(L"Are you sure to close this app?", L"Closing app...") == IDOK)
