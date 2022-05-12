@@ -6,6 +6,7 @@ HINSTANCE GetHInstance()
 {
     return GlobalhInstance;
 }
+
 void SetHInstance(HINSTANCE hInstance)
 {
     GlobalhInstance = hInstance;

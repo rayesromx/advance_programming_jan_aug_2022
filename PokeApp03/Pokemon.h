@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -18,4 +19,6 @@ Pokemon* CreateNewPokemon(string name, string type, string number);
 
 void insertNewPokemon(Pokemon* newPokemon);
 
+void savePkmnFile();
+void openPkmnFile();
 

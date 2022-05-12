@@ -3,9 +3,10 @@
 #include <windows.h>
 using namespace std;
 
-string getTextFromComponent(HWND hDlgParent, int idComponent);
-void setTextToComponent(HWND hComponent, string text);
 wchar_t* stringToWchar(string str);
+
+string getTextFromComponent(HWND hDlgParent, int idComponent); 
+void setTextToComponent(HWND hComponent, string text);
 
 HINSTANCE GetHInstance();
 void SetHInstance(HINSTANCE hInstance);

@@ -5,10 +5,12 @@
 #include <windows.h>
 #include "resource.h"
 #include <string>
+#include "Utilities.h"
+#include "WinApiUtils.h"
 
 using namespace std;
 
-HINSTANCE GlobalhInstance;
+
 
 struct Pokemon
 {
@@ -31,46 +33,18 @@ enum POKEFORM_ACTION {
      REMOVE_POKEFORM
 };
 
+
 POKEFORM_ACTION PKFAction;
 LPWSTR fotoProducto1Nueva;
-
 
 INT_PTR CALLBACK fDlgMainDialog(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK fDlgPokeForm(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-void DisplayMainDialog(HWND hwndPreviousDialog);
-void DisplayPokeForm(HWND hwndPreviousDialog);
 
-string getTextFromComponent(HWND hComponent)
-{
-    wchar_t text[50];
-    GetWindowText(hComponent, text, 50);
-    wstring ws = wstring(text);
-    string str(ws.begin(), ws.end());
-    return str;
-}
-
-void setTextToComponent(HWND hComponent, string text)
-{
-    wstring widestr = wstring(text.begin(), text.end());
-    LPCWSTR componentText = widestr.c_str();
-    SetWindowText(hComponent, componentText);
-}
-
-LPARAM* strToLparam(string str)
-{
-    wstring ws = wstring(str.begin(), str.end());
-    const wchar_t* wc = ws.c_str();
-    LPARAM lparamt = reinterpret_cast<LPARAM>(wc);
-    LPARAM* lparam = new LPARAM;
-    *lparam = lparamt;
-
-    return lparam;
-}
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
-    GlobalhInstance = hInstance;
+    SetHINSTANCE(hInstance);
     PokeList = NULL;
     selectedPokemon = NULL;
 
@@ -127,14 +101,31 @@ INT_PTR CALLBACK fDlgMainDialog(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPar
                 const wchar_t* wc = ws.c_str();
                 LPARAM lparam = reinterpret_cast<LPARAM>(wc);*/
 
-                int listBoxIndex = SendMessage(lbPokeList, LB_ADDSTRING, 0, *strToLparam(aux->name));
-                SendMessage(lbPokeList, LB_SETITEMDATA, listBoxIndex, (LPARAM)aux);
+                /*
+                esto es para convertir de string a wchar_t*
+                */
+                wstring ws = wstring(aux->name.begin(), aux->name.end());
+                const wchar_t* const_wchar = ws.c_str();
+                wchar_t* pkmnName = new wchar_t[250];
+                for (int i = 0; i < aux->name.length(); i++)
+                {
+                    pkmnName[i] = const_wchar[i];
+                }
+                pkmnName[aux->name.length()] = 0;
+
+                int listBoxIndex = SendMessage(
+                    lbPokeList, 
+                    LB_ADDSTRING, 
+                    0, 
+                    (LPARAM)pkmnName);
+
+                SendMessage(lbPokeList,
+                    LB_SETITEMDATA, 
+                    listBoxIndex, 
+                    (LPARAM)aux);
                 aux = aux->next;
             }
         }
-        
-        
-        
     }
     break;
 
@@ -189,17 +180,17 @@ INT_PTR CALLBACK fDlgMainDialog(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 INT_PTR CALLBACK fDlgPokeForm(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+    //HWND = Handler WiNDow = manejador de ventana
     HWND hTxtName = GetDlgItem(hwnd, IDTXT_NAME);
     HWND hTxtNumber = GetDlgItem(hwnd, IDTXT_NUMBER);
     HWND hTxtType = GetDlgItem(hwnd, IDTXT_TYPE);
     HWND hTxtAppreance = GetDlgItem(hwnd, IDTXT_APPEARENCE);
     HWND hBtnAccept = GetDlgItem(hwnd, IDBTN_ACCEPT);
 
-    
-
     switch (uMsg)
     {
-    case WM_INITDIALOG:
+    case WM_INITDIALOG://INTIALIZE DIALOG
+        //EVENTO QUE SE EJECUTA CADA VEZ QUE SE CREA UN DIALOGO POR PRIMERA VEZ
     {
         SetWindowText(hTxtName, L"");
         SetWindowText(hTxtNumber, L"");
@@ -210,8 +201,6 @@ INT_PTR CALLBACK fDlgPokeForm(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam
         EnableWindow(hTxtNumber, true);
         EnableWindow(hTxtType, true);
         EnableWindow(hTxtAppreance, true);
-
-
         switch (PKFAction)
         {
         case ADD_POKEFORM:
@@ -254,7 +243,7 @@ INT_PTR CALLBACK fDlgPokeForm(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam
             ofn.lpstrFilter = L"Imagenes bmp\0*.bmp";
 
             if (GetOpenFileName(&ofn)) {
-                HBITMAP hbFotoPP1 = (HBITMAP)LoadImage(GlobalhInstance, wc, IMAGE_BITMAP, 200, 200, LR_LOADFROMFILE);
+                HBITMAP hbFotoPP1 = (HBITMAP)LoadImage(GetHINSTANCE(), wc, IMAGE_BITMAP, 200, 200, LR_LOADFROMFILE);
                 HWND hPbFotoPP1 = GetDlgItem(hwnd, PB_FOTOP1M);
                 SendMessage(hPbFotoPP1, STM_SETIMAGE, IMAGE_BITMAP, (LPARAM)hbFotoPP1);
             }
@@ -302,12 +291,17 @@ INT_PTR CALLBACK fDlgPokeForm(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam
             }
                 break;
             case UPDATE_POKEFORM:
+            {
+
+            }
                /*
                Get values from pokeform and update the node
                */
                 break;
             case REMOVE_POKEFORM:
-              
+            {
+            
+            }
                 break;
             }
 
@@ -332,32 +326,4 @@ INT_PTR CALLBACK fDlgPokeForm(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam
     }
 
     return FALSE;
-}
-
-void DisplayPokeForm(HWND hwndPreviousDialog)
-{
-    HWND hPokeForm =
-        CreateDialogW(
-            GlobalhInstance,
-            MAKEINTRESOURCE(IDD_POKEFORM),
-            NULL,
-            fDlgPokeForm
-        );
-    ShowWindow(hPokeForm, SW_SHOW);
-    if (hwndPreviousDialog != NULL)
-    DestroyWindow(hwndPreviousDialog);
-}
-
-void DisplayMainDialog(HWND hwndPreviousDialog)
-{
-    HWND hMainDialog =
-        CreateDialogW(
-            GlobalhInstance,
-            MAKEINTRESOURCE(IDD_MAINDIALOG),
-            NULL,
-            fDlgMainDialog
-        );
-    ShowWindow(hMainDialog, SW_SHOW);
-    if(hwndPreviousDialog != NULL)
-        DestroyWindow(hwndPreviousDialog);
 }

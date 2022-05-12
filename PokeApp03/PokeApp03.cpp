@@ -15,6 +15,7 @@ INT_PTR CALLBACK fDlgPokeAdd(HWND hDlgParent, UINT uMsg, WPARAM wParam, LPARAM l
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
+    openPkmnFile();
     SetHInstance(hInstance);
     //Handler WiNDow
     HWND hDlgPokeApp = CreateAndShowDialog(IDD_POKEAPP, fDlgPokeApp);
@@ -24,6 +25,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
+    savePkmnFile();
     return 0;
 }
 

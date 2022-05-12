@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{e6939c0b-c9b1-463d-bfb1-35b92fbb5a92}</ProjectGuid>
-    <RootNamespace>My08WinapiLBDTPPB</RootNamespace>
+    <ProjectGuid>{cd2c8872-167b-4b81-991b-8cadcbbb3408}</ProjectGuid>
+    <RootNamespace>TestApp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -118,7 +118,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -139,17 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="08_Winapi_LB_DTP_PB.cpp" />
-    <ClCompile Include="Utilities.cpp" />
-    <ClCompile Include="WinApiUtils.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="Utilities.h" />
-    <ClInclude Include="WinApiUtils.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="08_Winapi_LB_DTP_PB.rc" />
+    <ClCompile Include="TestApp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
